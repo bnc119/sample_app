@@ -1,5 +1,7 @@
 SampleApp::Application.routes.draw do
   
+  
+
   # also creates a "named route" for use in the controllers and views
   #contact_path  (relative)
   #contact_url   (absolute url)
@@ -14,10 +16,14 @@ SampleApp::Application.routes.draw do
   # also creates a "named route" for use in the controllers and views
   match '/contact', :to => 'pages#contact'
   
+  # also creates a "named route" for use in the controllers and views
+  match '/signup', :to => 'users#new'
+  
   get "pages/home"
   get "pages/contact"
   get "pages/about"
   get "pages/help"
+  get "users/new"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
