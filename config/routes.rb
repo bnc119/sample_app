@@ -1,4 +1,19 @@
 SampleApp::Application.routes.draw do
+  
+  # also creates a "named route" for use in the controllers and views
+  #contact_path  (relative)
+  #contact_url   (absolute url)
+  match '/contact', :to => 'pages#contact'
+  
+  # also creates a "named route" for use in the controllers and views
+  match '/about',   :to => 'pages#about'
+  
+  # also creates a "named route" for use in the controllers and views
+  match '/help',    :to => 'pages#help'
+  
+  # also creates a "named route" for use in the controllers and views
+  match '/contact', :to => 'pages#contact'
+  
   get "pages/home"
   get "pages/contact"
   get "pages/about"
@@ -53,7 +68,7 @@ SampleApp::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'pages#home'
 
   # See how all your routes lay out with "rake routes"
 
