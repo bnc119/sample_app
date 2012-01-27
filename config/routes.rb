@@ -1,6 +1,8 @@
 SampleApp::Application.routes.draw do
   
+  # specify :users to be a resource in the RESTFul style.
   
+  resources :users
 
   # also creates a "named route" for use in the controllers and views
   #contact_path  (relative)
@@ -19,11 +21,11 @@ SampleApp::Application.routes.draw do
   # also creates a "named route" for use in the controllers and views
   match '/signup', :to => 'users#new'
   
-  get "pages/home"
-  get "pages/contact"
-  get "pages/about"
-  get "pages/help"
-  get "users/new"
+  #get "pages/home"
+  #get "pages/contact"
+  #get "pages/about"
+  #get "pages/help"
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
