@@ -9,6 +9,7 @@ gem 'sqlite3'
 #gem 'pg'
 gem 'therubyracer'
 gem 'execjs'
+gem 'gravatar_image_tag', '0.1.0'
 
 group :assets do
   gem 'sass-rails',   '~> 3.1.5'
@@ -22,6 +23,7 @@ group :development do
 end
 
 group :test do
+  gem 'factory_girl_rails'
   gem 'rspec'
   gem 'webrat'
 end

@@ -21,10 +21,10 @@ SampleApp::Application.routes.draw do
   # also creates a "named route" for use in the controllers and views
   match '/signup', :to => 'users#new'
   
-  #get "pages/home"
-  #get "pages/contact"
-  #get "pages/about"
-  #get "pages/help"
+  get "pages/home"
+  get "pages/contact"
+  get "pages/about"
+  get "pages/help"
   
 
   # The priority is based upon order of creation:
