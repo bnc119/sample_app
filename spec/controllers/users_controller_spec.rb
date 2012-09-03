@@ -103,7 +103,7 @@ describe UsersController do
                                       :password_confirmation=> "foobar" }
       end
       
-      it "should not create a user" do
+      it "should create a user" do
         lambda do
           post :create, :user=> @attr
         end.should change(User, :count).by(1)
@@ -118,6 +118,10 @@ describe UsersController do
       it "should have a welcome message" do
         post :create, :user => @attr
         flash[:success].should =~ /welcome to the sample app/i
+      end
+      it "should sign the user in" do
+        post :create, :user =>@attr
+        controller.should be_signed_in
       end
     end
   end

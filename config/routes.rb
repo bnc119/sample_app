@@ -1,8 +1,11 @@
 SampleApp::Application.routes.draw do
   
+  get "sessions/new"
+
   # specify :users to be a resource in the RESTFul style.
   
   resources :users
+  resources :sessions, :only => [:new,:create,:destroy]
 
   # also creates a "named route" for use in the controllers and views
   #contact_path  (relative)
@@ -20,6 +23,10 @@ SampleApp::Application.routes.draw do
   
   # also creates a "named route" for use in the controllers and views
   match '/signup', :to => 'users#new'
+  
+  # also create a "named route for signin and signout
+  match '/signin', :to => 'sessions#new'
+  match '/signout', :to => 'sessions#destroy'
   
   get "pages/home"
   get "pages/contact"
