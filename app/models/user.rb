@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   
   # used to identify attributes that are accessible from user controller methods.
   # password and password_confirmation do not map to explicit database columns
+  # these are parameters that can be assigned via mass assignment
   attr_accessible :name, :email, :password, :password_confirmation
   
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

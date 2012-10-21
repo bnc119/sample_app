@@ -10,6 +10,7 @@ gem 'sqlite3'
 gem 'therubyracer'
 gem 'execjs'
 gem 'gravatar_image_tag', '0.1.0'
+gem 'will_paginate', '3.0.pre2'
 
 group :assets do
   gem 'sass-rails',   '~> 3.1.5'
@@ -20,6 +21,7 @@ end
 gem 'jquery-rails'
 group :development do
   gem 'rspec-rails'
+  gem 'faker'
 end
 
 group :test do
