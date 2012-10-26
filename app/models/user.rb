@@ -2,13 +2,13 @@ require 'digest'
 
 class User < ActiveRecord::Base
   
+  has_many :microposts, :dependent=> :destroy
+  
   # generate implicit getter and setter methods for :password
   # generate a virtual password attribute 
   attr_accessor :password
   
-  # used to identify attributes that are accessible from user controller methods.
-  # password and password_confirmation do not map to explicit database columns
-  # these are parameters that can be assigned via mass assignment
+  # these are the variables that we allow to be editable through mass-assignment
   attr_accessible :name, :email, :password, :password_confirmation
   
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
