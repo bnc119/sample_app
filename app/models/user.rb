@@ -44,6 +44,11 @@ class User < ActiveRecord::Base
     (user && user.salt == cookie_salt) ? user : nil
   end 
   
+  def feed
+    # this is preliminary
+    microposts
+  end
+  
   private
   
   # callback before_save
