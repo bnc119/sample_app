@@ -1,5 +1,12 @@
 SampleApp::Application.routes.draw do
   
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
+  
+  
   get "sessions/new"
 
   # specify :users to be a resource in the RESTFul style.
@@ -7,6 +14,9 @@ SampleApp::Application.routes.draw do
   resources :users
   resources :sessions, :only => [:new,:create,:destroy]
   resources :microposts, :only=> [:create,:destroy]
+  resources :relationships, :only => [:create,:destroy]
+  
+  
 
   # also creates a "named route" for use in the controllers and views
   #contact_path  (relative)

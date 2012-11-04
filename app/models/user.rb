@@ -3,6 +3,15 @@ require 'digest'
 class User < ActiveRecord::Base
   
   has_many :microposts, :dependent=> :destroy
+  has_many :relationships, :foreign_key => "follower_id", :dependent => :destroy
+  has_many :following, :through => :relationships, :source => :followed
+  
+  has_many :reverse_relationships, :foreign_key => "followed_id", 
+                                   :class_name => "Relationship",
+                                   :dependent => :destroy
+  
+  has_many :followers, :through => :reverse_relationships, :source => :follower
+  
   
   # generate implicit getter and setter methods for :password
   # generate a virtual password attribute 
@@ -48,6 +57,20 @@ class User < ActiveRecord::Base
     # this is preliminary
     microposts
   end
+  
+  def following? user
+    relationships.find_by_followed_id(user)
+  end
+  
+  def follow!(user)
+    relationships.create!(:followed_id => user.id) 
+  end
+  
+  def unfollow!(user)
+    relationships.find_by_followed_id(user).destroy
+  end
+  
+  
   
   private
   
