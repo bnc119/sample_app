@@ -21,7 +21,7 @@ end
 gem 'jquery-rails'
 group :development do
   gem 'rspec-rails'
-  gem 'faker'
+  gem 'faker', :require=> false
 end
 
 group :test do
