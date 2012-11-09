@@ -14,11 +14,24 @@
   </table>
 
   <% else %>
-<h1>Sample App</h1>
+<h1>Twitter-Tastic!</h1>
 <p>
-  This is the home page for the
-  <a href="http://railstutorial.org/">Ruby on Rails Tutorial</a>
-  sample application.
+  <table>
+    <tr>
+      <td>
+      <%= gravatar_for_email "bence.magyar@gmail.com", "bence", :size=> 100 %>
+      </td>
+      <td>
+        Welcome to Twitter-Tastic:
+        
+        A little twitter clone developed by 
+        <a href="http://linkedin.com/in/bencemagyar">Bence</a>
+        in order to gain some Ruby/Rails chops.  I leveraged the wise sage of 
+        <a href="http://railstutorial.org/">Michael Hartl</a> for this development effort.
+      </td>
+    </tr>
+  </table>
+    
 </p>
 
 <%= link_to "Sign up now!", signup_path, :class=> "signup_button round"  %>
