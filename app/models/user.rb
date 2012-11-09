@@ -54,8 +54,8 @@ class User < ActiveRecord::Base
   end 
   
   def feed
-    # this is preliminary
-    microposts
+    Micropost.from_users_followed_by(self)
+    
   end
   
   def following? user
