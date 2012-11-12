@@ -90,6 +90,14 @@ describe UsersController do
       response.should have_selector("span.content", :content=>mp1.content)
       response.should have_selector("span.content", :content=>mp2.content)
     end
+    
+		it "should show the correct user stats" do
+		  get :show, :id => @user
+		  response.should have_selector("span", :class => "postcount", :content => "0")
+		  mp1 = Factory(:micropost, :user => @user, :content => "Foo bar")
+		  get :show, :id => @user		
+			response.should have_selector("span", :class => "postcount", :content => "1")
+		end
       
   end
   

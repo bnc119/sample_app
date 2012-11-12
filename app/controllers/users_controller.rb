@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   end
   
   def index
-    @title = "All Users"
+  	@title = "All Users"
     @users = User.paginate(:page => params[:page])
   end
   
@@ -64,18 +64,20 @@ class UsersController < ApplicationController
       
   end
   
-  def following
-    @title="Following"
-    @user = User.find(params[:id])
-    @users = @user.following.paginate(:page => params[:page])
+  
+  def show_follow(action)
+  	@title = action.to_s.capitalize
+  	@user = User.find(params[:id])
+    @users = @user.send(action).paginate(:page => params[:page])
     render 'show_follow'
   end
   
+  def following
+    show_follow :following
+  end
+  
   def followers
-    @title="Followers"
-    @user = User.find(params[:id])
-    @users = @user.followers.paginate(:page => params[:page])
-    render 'show_follow'
+    show_follow :followers
   end
   
   private 

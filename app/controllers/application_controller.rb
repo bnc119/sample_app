@@ -5,4 +5,5 @@ class ApplicationController < ActionController::Base
   # in the views, but not the controllers.  By explicitly including 
   # the sessions helper here, we make sure it is available in both
   include SessionsHelper
+ 
 end

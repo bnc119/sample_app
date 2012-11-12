@@ -203,7 +203,7 @@ describe User do
       @user.should respond_to(:following)
     end
     
-    it "should have a following? methhod" do
+    it "should have a following? method" do
       @user.should respond_to(:following?)
     end
     
@@ -245,6 +245,13 @@ describe User do
       @user.follow!(@followed)
       @user.should be_following(@followed)
       @followed.followers.should include(@user)
+    end
+    
+    it "should get cleaned up if the user is removed" do
+    	@user.follow!(@followed)
+    	@user.destroy
+    	@followed.followers.should_not include(@user)
+    	
     end
 
     
